@@ -1,0 +1,35 @@
+<div style="text-align:center">
+    <form  #loginForm="ngForm" [formGroup]="loginFormControl">
+
+            
+     <mat-card class="centered">
+       <div class="cardhdr" >
+         LaabCorp Login Screen
+         </div>
+       <hr>
+       <div *ngIf="!loginsuccess" class="errMsg">
+          <strong>Invalid UserName and Password</strong>
+      </div>
+       <mat-card-content>
+         <mat-form-field >
+           <input matInput placeholder="User Name" name="usrName" [(ngModel)]="localUser.username"
+           formControlName="uName">
+           <mat-hint align="start">user</mat-hint>
+           <mat-error *ngIf="loginFormControl.hasError('required','uName')">
+              UserName is <strong>required</strong>
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field>
+           <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="localUser.password"
+           formControlName="pass">
+           <mat-hint align="start">mypass</mat-hint>
+           <mat-error *ngIf="loginFormControl.hasError('required','pass')">
+              Password is <strong>required</strong>
+            </mat-error>
+         </mat-form-field>
+         <br><br>
+         <button [disabled]="!loginForm.form.valid" mat-raised-button color="primary" (click)="login()" >Login</button>
+       </mat-card-content>
+     </mat-card>
+    </form>
+   </div>

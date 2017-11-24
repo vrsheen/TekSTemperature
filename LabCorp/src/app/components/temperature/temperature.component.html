@@ -1,0 +1,65 @@
+<mat-card class="bodypanel">
+    <form #tform="ngForm" [formGroup]="temptForm">
+    <mat-card>
+
+    <mat-card>
+      <mat-card-content>
+              <h2 >Max of 8 Temperatures Allowed</h2>
+        <mat-progress-bar
+              color="primary"
+              mode="determinate"
+              [value]="getAllTempt()?.length*(12.5)">
+        </mat-progress-bar>
+        <div class="prgbar">{{getAllTempt()?.length}}/8</div>
+      </mat-card-content>
+    </mat-card>
+          
+    <mat-form-field>
+        <input matInput type="number" name="tempt" placeholder="Add Temperature" [(ngModel)]="inpTempt"
+        [formControl]="temptBtnFormControl">
+        <mat-icon matSuffix>&deg;&nbsp;C</mat-icon>
+        <mat-error *ngIf="temptBtnFormControl.hasError('required')">
+            Value is <strong>required</strong>
+          </mat-error>
+    </mat-form-field>
+        <button type="reset" [disabled]="temptBtnFormControl.hasError('required') || getAllTempt()?.length>7" mat-raised-button color="primary" (click)="recordTemperature()">Add</button>
+        <table width="40%">
+          <thead>
+            <tr>
+                <td>Index</td>
+              <td>Temperatures in &deg;C</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let temperature of getAllTempt(); let i=index">
+              <td>{{i}}</td>
+              <td>{{temperature}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </mat-card>
+    <br><br>
+    <mat-card>
+    <button mat-raised-button color="warn" (click)="getCurrentMedian()">Get Median Temperature</button>
+    <div *ngIf= "medianArr?.length>0">
+    <div class="result">Median Temperature is {{medianNum}} &deg;C</div>
+    <table width="40%">
+        <thead>
+          <tr>
+              <td>Index</td>
+            <td>Sorted Temperatures &deg;C</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let temperatures of medianArr; let is=index">
+            <td>{{is}}</td>
+            <td>{{temperatures}}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </mat-card>
+    </form>
+    </mat-card>

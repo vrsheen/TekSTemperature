@@ -1,0 +1,16 @@
+.bodypanel{
+    min-height: 450px;
+    position: relative;
+}
+
+.result{
+    font-weight: bold;
+    color: blue;
+    text-align: left;
+    border: 10px;
+    padding-top: 20px;
+}
+
+.prgbar{
+    text-align: right;
+}
