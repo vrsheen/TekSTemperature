@@ -1,7 +1,4 @@
-.bodypanel{
-    min-height: 450px;
-    position: relative;
-}
+
 
 .result{
     font-weight: bold;
@@ -13,4 +10,9 @@
 
 .prgbar{
     text-align: right;
+}
+
+.panel{
+     margin: auto;
+    width: 60%;
 }

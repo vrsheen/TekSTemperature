@@ -1,8 +1,8 @@
-<mat-card class="bodypanel">
+
+  <mat-card class="panel">
     <form #tform="ngForm" [formGroup]="temptForm">
     <mat-card>
 
-    <mat-card>
       <mat-card-content>
               <h2 >Max of 8 Temperatures Allowed</h2>
         <mat-progress-bar
@@ -12,8 +12,8 @@
         </mat-progress-bar>
         <div class="prgbar">{{getAllTempt()?.length}}/8</div>
       </mat-card-content>
-    </mat-card>
-          <br>
+  
+          
     <mat-form-field>
         <input matInput type="number" name="tempt" placeholder="Add Temperature" [(ngModel)]="inpTempt"
         [formControl]="temptBtnFormControl">
@@ -62,4 +62,4 @@
     </div>
     </mat-card>
     </form>
-    </mat-card>
+  </mat-card>
