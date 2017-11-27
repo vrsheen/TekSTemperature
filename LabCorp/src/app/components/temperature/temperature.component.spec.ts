@@ -30,15 +30,28 @@ describe('TemperatureComponent', () => {
     expect(component).toBeTruthy();
   });
   
-  // it('Add Temperature should reflect in the service',() => {
-  //   const tempComp= new TemperatureComponent( new TemperatureMonitorService(), new FormBuilder());
-   
-  //   tempComp.recordTemperature(1);
-  //   expect(tempComp.getAllTempt().length).toBe(1);
+  it('Add Temperature should reflect in the service',() => {
+    component.recordTemperature(1);
+    expect(component.getAllTempt().length).toBe(1);
 
-  //   tempComp.recordTemperature(2);
-  //   expect(tempComp.getAllTempt().length).toBe(2);
-  // })
+    component.recordTemperature(2);
+    expect(component.getAllTempt().length).toBe(2);
+
+    // Verify the Sorted Array is same as the Actual Array
+    component.sortTempt(component.getAllTempt());
+    expect(component.medianArr.length).toBe(2);
+  })
+
+  it('Find Median Method should return value',() => {
+    component.recordTemperature(1);
+    expect(component.getAllTempt().length).toBe(1);
+
+    component.recordTemperature(2);
+    expect(component.getAllTempt().length).toBe(2);
+
+    component.getCurrentMedian();
+    expect(component.medianNum.length).toBeGreaterThan(0);
+  })
 
 });
 
