@@ -25,8 +25,9 @@ export class TemperatureComponent implements OnInit {
     this.temptBtnFormControl=new FormControl('',[Validators.required]);
   }
 
-  recordTemperature(){
-    this._service.addTemperature(this.inpTempt);
+
+  public recordTemperature(_inpTempt=this.inpTempt){
+    this._service.addTemperature(_inpTempt);
     this.medianArr=null;
     this.temptForm.reset;
     // this.inpTempt=null;
@@ -37,8 +38,8 @@ export class TemperatureComponent implements OnInit {
     return this._service.getAllTemperature();
     
 }
-  sortTempt(){
-    this.medianArr=this._service.getAllTemperature().slice(0);
+  sortTempt(_getAllTempt=this._service.getAllTemperature()){
+    this.medianArr=_getAllTempt.slice(0);
     this.medianArr.sort((a,b) => {
       if(a < b) return -1;
       else if(a > b ) return 1;

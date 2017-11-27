@@ -1,4 +1,3 @@
-
   <mat-card class="panel">
     <form #tform="ngForm" [formGroup]="temptForm">
     <mat-card>
@@ -31,8 +30,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let temperature of getAllTempt(); let i=index">
-              <td>{{i}}</td>
+            <tr *ngFor="let temperature of getAllTempt(); let indx=index">
+              <td>{{indx}}</td>
               <td>{{temperature}}</td>
             </tr>
           </tbody>
@@ -52,8 +51,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let temperatures of medianArr; let is=index">
-            <td>{{is}}</td>
+          <tr *ngFor="let temperatures of medianArr; let indx=index">
+            <td>{{indx}}</td>
             <td>{{temperatures}}</td>
           </tr>
         </tbody>

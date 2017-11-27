@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideRoutes} from '@angular/router';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatProgressBarModule} from '@angular/material';
@@ -37,6 +38,7 @@ import { TemperatureComponent } from './components/temperature/temperature.compo
     FormsModule, ReactiveFormsModule,MatToolbarModule, MatProgressBarModule,
     RouterModule.forRoot(appRoutes)
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
